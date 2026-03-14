@@ -2,7 +2,7 @@ import { motion, useAnimationFrame } from 'framer-motion';
 import { useRef } from 'react';
 
 const logos = [
-  'Aurora Estates', 'Nova Health', 'Exo-Apex', 'FreshMart', 'EduTech Pro', 'Rohan Sharma'
+  'MaxEsport', 'Hotel Bollwerk', 'E-Renovation', 'DigiSparx', 'Mac Studio Hub'
 ];
 
 function RotatingLogo({ name, index, total }) {

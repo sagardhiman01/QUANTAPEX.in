@@ -3,55 +3,48 @@ import { useState } from 'react';
 
 const caseStudies = [
   {
-    id: '01', title: 'Aurora Estates (Real Estate)',
-    link: '#', 
+    id: '01', title: 'MaxEsport (Gaming E-Commerce)',
+    link: 'https://maxesport.gg/fr/', 
     tags: [
-      { icon: '✦', label: 'Property Match' },
-      { icon: '◻', label: '3D Virtual Tours' },
-      { icon: '⌁', label: 'Real Estate' }
+      { icon: '✦', label: 'E-Commerce' },
+      { icon: '◻', label: 'Gaming Gear' },
+      { icon: '⌁', label: 'Elite Esports' }
     ]
   },
   {
-    id: '02', title: 'Nova Health (Medical)',
-    link: '#',
+    id: '02', title: 'Hotel Bollwerk (Hospitality)',
+    link: 'https://hotel-bollwerk-immenstadt.de/',
     tags: [
-      { icon: '✦', label: 'Healthcare' },
-      { icon: '◻', label: 'Telemedicine' },
-      { icon: '◇', label: 'Patient Portal' }
+      { icon: '✦', label: 'Hospitality' },
+      { icon: '◻', label: 'Lifestyle Hotel' },
+      { icon: '◇', label: 'Booking System' }
     ]
   },
   {
-    id: '03', title: 'Exo-Apex (3D Experience)',
-    link: 'https://exo-apex.com/',
+    id: '03', title: 'E-Renovation (Home Decor)',
+    link: 'https://www.erenovation.com.au/',
     tags: [
-      { icon: '◻', label: 'Creative Tech' },
-      { icon: '◇', label: 'Immersive Web' },
-      { icon: '⌁', label: '3D Interactions' }
+      { icon: '◻', label: 'E-Commerce' },
+      { icon: '◇', label: 'Home Decor' },
+      { icon: '⌁', label: 'Kitchen & Bath' }
     ]
   },
   {
-    id: '04', title: 'FreshMart (E-Commerce)',
-    link: '#',
+    id: '04', title: 'DigiSparx (Digital Agency)',
+    link: 'https://digisparx.com/',
     tags: [
-      { icon: '✦', label: 'Retail' },
-      { icon: '◇', label: 'Online Store' },
-      { icon: '⌁', label: 'Clean UI' }
+      { icon: '✦', label: 'Growth Agency' },
+      { icon: '◇', label: 'SEO' },
+      { icon: '⌁', label: 'Digital Marketing' }
     ]
   },
   {
-    id: '05', title: 'EduTech Pro (Learning)',
-    link: '#',
+    id: '05', title: 'Mac Studio Hub (Production)',
+    link: 'https://www.macstudiohub.in/',
     tags: [
-      { icon: '✦', label: 'Education LMS' },
-      { icon: '◇', label: 'Platform' }
-    ]
-  },
-  {
-    id: '06', title: 'Creative Studio (Portfolio)',
-    link: '#',
-    tags: [
-      { icon: '◻', label: 'Branding' },
-      { icon: '⌁', label: 'Design' }
+      { icon: '✦', label: 'Video Production' },
+      { icon: '◇', label: 'Social Media' },
+      { icon: '⌁', label: 'Branding' }
     ]
   }
 ];

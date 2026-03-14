@@ -21,7 +21,7 @@ export default function TechStack() {
     <section className="tech-stack-section" style={{ padding: '8rem 0', background: 'transparent' }}>
       <div className="container">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
-          
+
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -58,8 +58,8 @@ export default function TechStack() {
                   initial={{ opacity: 0, y: 50, rotateX: 45 }}
                   whileInView={{ opacity: 1, y: 0, rotateX: 25 }}
                   viewport={{ once: true }}
-                  transition={{ 
-                    duration: 0.5, 
+                  transition={{
+                    duration: 0.5,
                     delay: (stackLayers.length - index) * 0.1,
                     type: "spring",
                     stiffness: 100
