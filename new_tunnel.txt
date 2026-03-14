@@ -1,0 +1,50 @@
+2026-03-11T22:53:11Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps
+2026-03-11T22:53:11Z INF Requesting new quick Tunnel on trycloudflare.com...
+2026-03-11T22:53:16Z INF +--------------------------------------------------------------------------------------------+
+2026-03-11T22:53:16Z INF |  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |
+2026-03-11T22:53:16Z INF |  https://horizontal-hazards-navigator-apartment.trycloudflare.com                          |
+2026-03-11T22:53:16Z INF +--------------------------------------------------------------------------------------------+
+2026-03-11T22:53:16Z INF Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp]
+2026-03-11T22:53:16Z INF Version 2025.8.1 (Checksum b5d598b00cc3a28cabc5812d9f762819334614bae452db4e7f23eefe7b081556)
+2026-03-11T22:53:16Z INF GOOS: windows, GOVersion: go1.24.2, GoArch: amd64
+2026-03-11T22:53:16Z INF Settings: map[ha-connections:1 protocol:quic url:http://localhost:5173]
+2026-03-11T22:53:16Z INF cloudflared will not automatically update on Windows systems.
+2026-03-11T22:53:16Z INF Generated Connector ID: 3739d7f4-e1dc-433c-89dc-5181f436164e
+2026-03-11T22:53:16Z INF Initial protocol quic
+2026-03-11T22:53:16Z INF ICMP proxy will use 192.168.31.212 as source for IPv4
+2026-03-11T22:53:16Z INF ICMP proxy will use 2409:4090:b0a0:b80b:2a3c:2ebd:f0f3:fecf in zone Wi-Fi 2 as source for IPv6
+2026-03-11T22:53:16Z ERR Cannot determine default origin certificate path. No file cert.pem in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp]. You need to specify the origin certificate path by specifying the origincert option in the configuration file, or set TUNNEL_ORIGIN_CERT environment variable originCertPath=
+2026-03-11T22:53:16Z INF cloudflared does not support loading the system root certificate pool on Windows. Please use --origin-ca-pool <PATH> to specify the path to the certificate pool
+2026-03-11T22:53:16Z INF ICMP proxy will use 192.168.31.212 as source for IPv4
+2026-03-11T22:53:16Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveP256] connIndex=0 event=0 ip=198.41.192.47
+2026-03-11T22:53:16Z INF ICMP proxy will use 2409:4090:b0a0:b80b:2a3c:2ebd:f0f3:fecf in zone Wi-Fi 2 as source for IPv6
+2026-03-11T22:53:16Z INF Starting metrics server on 127.0.0.1:20242/metrics
+2026-03-11T22:53:17Z INF Registered tunnel connection connIndex=0 connection=4a7123e4-efc3-47d2-948d-e97551d2fe1c event=0 ip=198.41.192.47 location=del02 protocol=quic
+2026-03-11T23:04:33Z ERR  error="Incoming request ended abruptly: context canceled" connIndex=0 event=1 ingressRule=0 originService=http://localhost:5173
+2026-03-11T23:04:33Z ERR Request failed error="Incoming request ended abruptly: context canceled" connIndex=0 dest=https://horizontal-hazards-navigator-apartment.trycloudflare.com/node_modules/.vite/deps/lenis.js?v=076e0572 event=0 ip=198.41.192.47 type=http
+2026-03-11T23:04:33Z ERR  error="stream 821 canceled by remote with error code 0" connIndex=0 event=1 ingressRule=0 originService=http://localhost:5173
+2026-03-11T23:04:33Z ERR Request failed error="stream 821 canceled by remote with error code 0" connIndex=0 dest=https://horizontal-hazards-navigator-apartment.trycloudflare.com/node_modules/.vite/deps/lenis.js?v=076e0572 event=0 ip=198.41.192.47 type=http
+2026-03-11T23:04:33Z ERR  error="stream 825 canceled by remote with error code 0" connIndex=0 event=1 ingressRule=0 originService=http://localhost:5173
+2026-03-11T23:04:33Z ERR Request failed error="stream 825 canceled by remote with error code 0" connIndex=0 dest=https://horizontal-hazards-navigator-apartment.trycloudflare.com/src/index.css event=0 ip=198.41.192.47 type=http
+2026-03-11T23:04:35Z ERR  error="Incoming request ended abruptly: context canceled" connIndex=0 event=1 ingressRule=0 originService=http://localhost:5173
+2026-03-11T23:04:35Z ERR  error="Incoming request ended abruptly: context canceled" connIndex=0 event=1 ingressRule=0 originService=http://localhost:5173
+2026-03-11T23:04:35Z ERR  error="Incoming request ended abruptly: context canceled" connIndex=0 event=1 ingressRule=0 originService=http://localhost:5173
+2026-03-11T23:04:35Z ERR Request failed error="Incoming request ended abruptly: context canceled" connIndex=0 dest=https://horizontal-hazards-navigator-apartment.trycloudflare.com/node_modules/.vite/deps/lenis.js?v=076e0572 event=0 ip=198.41.192.47 type=http
+2026-03-11T23:04:35Z ERR Request failed error="Incoming request ended abruptly: context canceled" connIndex=0 dest=https://horizontal-hazards-navigator-apartment.trycloudflare.com/src/App.jsx?t=1773270154876 event=0 ip=198.41.192.47 type=http
+2026-03-11T23:04:35Z ERR Request failed error="Incoming request ended abruptly: context canceled" connIndex=0 dest=https://horizontal-hazards-navigator-apartment.trycloudflare.com/node_modules/.vite/deps/react.js?v=076e0572 event=0 ip=198.41.192.47 type=http
+2026-03-11T23:04:35Z ERR  error="Incoming request ended abruptly: context canceled" connIndex=0 event=1 ingressRule=0 originService=http://localhost:5173
+2026-03-11T23:04:35Z ERR Request failed error="Incoming request ended abruptly: context canceled" connIndex=0 dest=https://horizontal-hazards-navigator-apartment.trycloudflare.com/node_modules/.vite/deps/react-dom_client.js?v=076e0572 event=0 ip=198.41.192.47 type=http
+2026-03-11T23:04:36Z ERR  error="stream 1121 canceled by remote with error code 0" connIndex=0 event=1 ingressRule=0 originService=http://localhost:5173
+2026-03-11T23:04:36Z ERR Request failed error="stream 1121 canceled by remote with error code 0" connIndex=0 dest=https://horizontal-hazards-navigator-apartment.trycloudflare.com/node_modules/.vite/deps/chunk-A7TE6BYH.js?v=076e0572 event=0 ip=198.41.192.47 type=http
+2026-03-11T23:04:36Z ERR  error="stream 1165 canceled by remote with error code 0" connIndex=0 event=1 ingressRule=0 originService=http://localhost:5173
+2026-03-11T23:04:36Z ERR Request failed error="stream 1165 canceled by remote with error code 0" connIndex=0 dest=https://horizontal-hazards-navigator-apartment.trycloudflare.com/node_modules/.vite/deps/framer-motion.js?v=076e0572 event=0 ip=198.41.192.47 type=http
+2026/03/12 04:35:45 Unsolicited response received on idle HTTP channel starting with "HTTP/1.1 400 Bad Request\r\n\r\n"; err=<nil>
+2026-03-11T23:22:27Z INF Initiating graceful shutdown due to signal interrupt ...
+2026-03-11T23:22:27Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.47
+2026-03-11T23:22:27Z ERR failed to serve tunnel connection error="accept stream listener encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.47
+2026-03-11T23:22:27Z ERR Serve tunnel error error="accept stream listener encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.47
+2026-03-11T23:22:27Z INF Retrying connection in up to 1s connIndex=0 event=0 ip=198.41.192.47
+2026-03-11T23:22:27Z ERR Connection terminated connIndex=0
+2026-03-11T23:22:27Z ERR no more connections active and exiting
+2026-03-11T23:22:27Z INF Tunnel server stopped
+2026-03-11T23:22:27Z INF Metrics server stopped
