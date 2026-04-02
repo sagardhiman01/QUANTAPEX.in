@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     const targetFilePath = 'index.html'; // Default target for root-level projects
 
     // 2. Fetch the target file
-    let fileData;
+    let fileData: any;
     try {
       const response = await octokit.rest.repos.getContent({
         owner,
@@ -30,7 +30,7 @@ export async function POST(req: Request) {
       // @ts-ignore
       fileData = response.data;
     } catch (e: any) {
-      return NextResponse.json({ error: \`Failed to fetch \${targetFilePath} from repository. Status: \${e.status}\` }, { status: 500 });
+      return NextResponse.json({ error: `Failed to fetch ${targetFilePath} from repository. Status: ${e.status}` }, { status: 500 });
     }
 
     // Decode Base64 Content
@@ -38,21 +38,21 @@ export async function POST(req: Request) {
     const $ = cheerio.load(originalContent);
 
     // 3. AI / SEO Generation Engine (Simulated Logic based on context)
-    const newTitle = businessDesc ? \`\${url.replace('https://', '').split('.')[0].toUpperCase()} | Top \${businessDesc.split(' ').slice(0, 3).join(' ')} Agency\` : "Top Digital SEO Solutions & Services";
+    const newTitle = businessDesc ? `${url.replace('https://', '').split('.')[0].toUpperCase()} | Top ${businessDesc.split(' ').slice(0, 3).join(' ')} Agency` : "Top Digital SEO Solutions & Services";
     
     // Inject or Modify <title>
     if ($('title').length > 0) {
       $('title').text(newTitle);
     } else {
-      $('head').append(\`<title>\${newTitle}</title>\`);
+      $('head').append(`<title>${newTitle}</title>`);
     }
 
     // Inject or Modify <meta name="description">
-    const newDesc = businessDesc ? \`Leading the digital landscape. \${businessDesc.substring(0, 100)}...\` : "We provide the best digital SEO strategies and full-stack solutions.";
+    const newDesc = businessDesc ? `Leading the digital landscape. ${businessDesc.substring(0, 100)}...` : "We provide the best digital SEO strategies and full-stack solutions.";
     if ($('meta[name="description"]').length > 0) {
       $('meta[name="description"]').attr('content', newDesc);
     } else {
-      $('head').append(\`<meta name="description" content="\${newDesc}" />\`);
+      $('head').append(`<meta name="description" content="${newDesc}" />`);
     }
 
     // Inject JSON-LD Schema
@@ -72,7 +72,7 @@ export async function POST(req: Request) {
     
     // Clean up old schema if exists, then add the new one
     $('head script[type="application/ld+json"]').remove();
-    $('head').append(\`\\n    <script type="application/ld+json">\\n    \${JSON.stringify(schemaJSON, null, 2)}\\n    </script>\\n  \`);
+    $('head').append(`\n    <script type="application/ld+json">\n    ${JSON.stringify(schemaJSON, null, 2)}\n    </script>\n  `);
 
     // 4. Encode & Commit back to GitHub
     const updatedContent = $.html();
