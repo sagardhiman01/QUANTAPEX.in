@@ -28,6 +28,17 @@ export default function Home() {
   const [spyLoading, setSpyLoading] = useState(false);
   const [spyResult, setSpyResult] = useState<any>(null);
 
+  // Sales Engine States
+  const [targetNiche, setTargetNiche] = useState("");
+  const [targetPainPoint, setTargetPainPoint] = useState("");
+  const [salesLoading, setSalesLoading] = useState(false);
+  const [salesResult, setSalesResult] = useState<any>(null);
+
+  // Web Audit States
+  const [auditUrl, setAuditUrl] = useState("");
+  const [auditLoading, setAuditLoading] = useState(false);
+  const [auditResult, setAuditResult] = useState<any>(null);
+
   useEffect(() => {
     // 3D Hero Animation
     if (heroRef.current) {
@@ -161,6 +172,47 @@ export default function Home() {
       setSpyLoading(false);
     }
   };
+
+  const handleSalesEngine = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!targetNiche) return;
+    setSalesLoading(true);
+    try {
+      const resp = await fetch('/api/sales', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ targetNiche, targetPainPoint })
+      });
+      const data = await resp.json();
+      setSalesResult(data);
+    } catch (err) {
+      console.error(err);
+      alert("Failed to generate sales pitch.");
+    } finally {
+      setSalesLoading(false);
+    }
+  };
+
+  const handleWebAudit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!auditUrl) return;
+    setAuditLoading(true);
+    try {
+      const resp = await fetch('/api/webaudit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url: auditUrl })
+      });
+      const data = await resp.json();
+      setAuditResult(data);
+    } catch (err) {
+      console.error(err);
+      alert("Failed to audit website design.");
+    } finally {
+      setAuditLoading(false);
+    }
+  };
+
 
   return (
     <div style={{ paddingBottom: '100px' }}>
@@ -496,6 +548,171 @@ export default function Home() {
                   <p style={{ color: '#ffaaaa', fontSize: '0.9rem', lineHeight: 1.5 }}>
                     {spyResult.theftStrategy}
                   </p>
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* Client Acquisition Sales Engine */}
+      {results && (
+        <section id="sales" className="container" style={{ margin: '4rem auto' }}>
+          <div className="glass-panel" style={{ padding: '3rem', maxWidth: '800px', margin: '0 auto', border: '1px solid var(--accent-gold)' }}>
+            <h2 style={{ fontSize: '2rem', marginBottom: '1rem', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', color: 'var(--accent-gold)' }}>
+              💰 Client Acquisition Engine
+            </h2>
+            <p style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '2rem' }}>
+              Generate highly personalized, psychological cold outreach to close high-ticket clients.
+            </p>
+            
+            <form onSubmit={handleSalesEngine} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <label htmlFor="targetNiche" style={{ fontWeight: 500, color: 'var(--text-secondary)' }}>Target Niche / Industry</label>
+                <div style={{ position: 'relative' }}>
+                  <Search size={20} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--accent-gold)' }} />
+                  <input 
+                    type="text" 
+                    id="targetNiche" 
+                    required
+                    placeholder="e.g. Plumbers in London, Real Estate Dubai" 
+                    value={targetNiche}
+                    onChange={(e) => setTargetNiche(e.target.value)}
+                    style={{ 
+                      width: '100%', padding: '16px 16px 16px 48px', 
+                      background: 'var(--bg-primary)', border: '1px solid var(--border-color)', 
+                      borderRadius: '8px', color: 'var(--text-primary)', fontSize: '1rem',
+                      outline: 'none', transition: 'border-color 0.3s'
+                    }} 
+                    onFocus={(e) => e.target.style.borderColor = 'var(--accent-gold)'}
+                    onBlur={(e) => e.target.style.borderColor = 'var(--border-color)'}
+                  />
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <label htmlFor="targetPainPoint" style={{ fontWeight: 500, color: 'var(--text-secondary)' }}>Primary Pain Point (Optional)</label>
+                <input 
+                  type="text" 
+                  id="targetPainPoint" 
+                  placeholder="e.g. Dwindling local foot traffic, bad Core Web Vitals" 
+                  value={targetPainPoint}
+                  onChange={(e) => setTargetPainPoint(e.target.value)}
+                  style={{ 
+                    width: '100%', padding: '16px', 
+                    background: 'var(--bg-primary)', border: '1px solid var(--border-color)', 
+                    borderRadius: '8px', color: 'var(--text-primary)', fontSize: '1rem',
+                    outline: 'none', transition: 'border-color 0.3s'
+                  }} 
+                  onFocus={(e) => e.target.style.borderColor = 'var(--accent-gold)'}
+                  onBlur={(e) => e.target.style.borderColor = 'var(--border-color)'}
+                />
+              </div>
+
+              <button type="submit" className="glow-button" style={{ 
+                marginTop: '1rem', height: '60px', fontSize: '1.2rem', 
+                display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px',
+                background: 'rgba(255, 215, 0, 0.1)', border: '1px solid var(--accent-gold)', color: 'var(--accent-gold)', boxShadow: '0 0 15px rgba(255, 215, 0, 0.2)'
+              }} disabled={salesLoading}>
+                {salesLoading ? (
+                  <span><Activity className="animate-spin" style={{ animation: 'spin 1s linear infinite' }} /> Generating Pitch...</span>
+                ) : (
+                  <span><CheckCircle size={20} /> Build Sales Pitch</span>
+                )}
+              </button>
+            </form>
+
+            {salesResult && (
+              <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                <div style={{ padding: '1.5rem', background: 'var(--bg-primary)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                  <div style={{ fontWeight: 500, color: 'var(--text-secondary)', marginBottom: '10px' }}>Email Template (Copy & Send)</div>
+                  <pre style={{ whiteSpace: 'pre-wrap', fontFamily: 'var(--font-inter)', fontSize: '0.9rem', lineHeight: 1.6, color: '#e0e0e0' }}>
+                    {salesResult.emailTemplate}
+                  </pre>
+                </div>
+                
+                <div style={{ padding: '1.5rem', background: 'rgba(255, 215, 0, 0.05)', borderRadius: '8px', borderLeft: '3px solid var(--accent-gold)' }}>
+                  <div style={{ fontWeight: 'bold', color: 'var(--accent-gold)', marginBottom: '10px' }}>DEAL CLOSING STRATEGY</div>
+                  <div dangerouslySetInnerHTML={{ __html: salesResult.closingStrategy.replace(/\\n/g, '<br/>') }} style={{ color: 'var(--text-primary)', fontSize: '0.9rem', lineHeight: 1.5 }} />
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* Web Design Audit & Roaster */}
+      {results && (
+        <section id="webaudit" className="container" style={{ margin: '4rem auto' }}>
+          <div className="glass-panel" style={{ padding: '3rem', maxWidth: '800px', margin: '0 auto', border: '1px solid #00f0ff' }}>
+            <h2 style={{ fontSize: '2rem', marginBottom: '1rem', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', color: '#00f0ff' }}>
+              🌐 Web Design Audit & Roaster
+            </h2>
+            <p style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '2rem' }}>
+              Audit a client's website architecture and generate a technical "roast" to sell a premium redesign.
+            </p>
+            
+            <form onSubmit={handleWebAudit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <label htmlFor="auditUrl" style={{ fontWeight: 500, color: 'var(--text-secondary)' }}>Client Website URL</label>
+                <div style={{ position: 'relative' }}>
+                  <Search size={20} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#00f0ff' }} />
+                  <input 
+                    type="url" 
+                    id="auditUrl" 
+                    required
+                    placeholder="https://their-old-website.com" 
+                    value={auditUrl}
+                    onChange={(e) => setAuditUrl(e.target.value)}
+                    style={{ 
+                      width: '100%', padding: '16px 16px 16px 48px', 
+                      background: 'var(--bg-primary)', border: '1px solid var(--border-color)', 
+                      borderRadius: '8px', color: 'var(--text-primary)', fontSize: '1rem',
+                      outline: 'none', transition: 'border-color 0.3s'
+                    }} 
+                    onFocus={(e) => e.target.style.borderColor = '#00f0ff'}
+                    onBlur={(e) => e.target.style.borderColor = 'var(--border-color)'}
+                  />
+                </div>
+              </div>
+
+              <button type="submit" className="glow-button" style={{ 
+                marginTop: '1rem', height: '60px', fontSize: '1.2rem', 
+                display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px',
+                background: 'rgba(0, 240, 255, 0.1)', border: '1px solid #00f0ff', color: '#00f0ff', boxShadow: '0 0 15px rgba(0, 240, 255, 0.2)'
+              }} disabled={auditLoading}>
+                {auditLoading ? (
+                  <span><Activity className="animate-spin" style={{ animation: 'spin 1s linear infinite' }} /> Analyzing Tech Stack...</span>
+                ) : (
+                  <span><ShieldCheck size={20} /> Generate Redesign Pitch</span>
+                )}
+              </button>
+            </form>
+
+            {auditResult && (
+              <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                <div style={{ padding: '1.5rem', background: 'var(--bg-primary)', borderRadius: '8px', border: `1px solid ${auditResult.trustScore < 50 ? '#ff4c4c' : '#00f0ff'}` }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+                    <div style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Design Grade: <span style={{ color: auditResult.trustScore < 50 ? '#ff4c4c' : '#00f0ff', fontSize: '1.5rem' }}>{auditResult.designGrade}</span></div>
+                    <div style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Trust Score: <span style={{ color: auditResult.trustScore < 50 ? '#ff4c4c' : '#00f0ff', fontSize: '1.5rem' }}>{auditResult.trustScore}/100</span></div>
+                  </div>
+                  <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Detected Stack: <span style={{ color: '#fff' }}>{auditResult.detectedStack}</span></div>
+                </div>
+
+                <div style={{ padding: '1.5rem', background: '#1a0505', borderRadius: '8px', borderLeft: '3px solid #ff4c4c' }}>
+                  <div style={{ fontWeight: 'bold', color: '#ff4c4c', marginBottom: '10px' }}>THE ROAST (TECHNICAL GAPS)</div>
+                  <ul style={{ color: '#ffaaaa', paddingLeft: '20px', listStyleType: 'disc' }}>
+                    {auditResult.roastPoints?.map((point: string, i: number) => (
+                      <li key={i} style={{ marginBottom: '8px' }}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div style={{ padding: '1.5rem', background: 'rgba(0, 240, 255, 0.05)', borderRadius: '8px', borderLeft: '3px solid #00f0ff' }}>
+                  <div style={{ fontWeight: 'bold', color: '#00f0ff', marginBottom: '10px' }}>QUANTAPEX PROPOSAL (SEND THIS TO CLIENT)</div>
+                  <pre style={{ whiteSpace: 'pre-wrap', fontFamily: 'var(--font-inter)', fontSize: '0.9rem', lineHeight: 1.6, color: '#e0e0e0' }}>
+                    {auditResult.pitch}
+                  </pre>
                 </div>
               </div>
             )}

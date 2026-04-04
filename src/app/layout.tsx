@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { CITIES } from '../lib/cities';
 import SmoothScroll from '../components/SmoothScroll';
 
 export const metadata: Metadata = {
@@ -30,8 +31,29 @@ export default function RootLayout({
             <main style={{ flex: 1 }}>
               {children}
             </main>
-            <footer style={{ padding: '2rem', textAlign: 'center', color: 'var(--text-secondary)', borderTop: '1px solid var(--border-color)' }}>
-              © 2026 Grandmaster Automation. All rights reserved. Built with precision.
+            <footer style={{ padding: '4rem 2rem', borderTop: '1px solid var(--border-color)', background: 'var(--bg-black)' }}>
+              <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+                <div style={{ marginBottom: '3rem', textAlign: 'center' }}>
+                  <h3 style={{ fontSize: '1.2rem', marginBottom: '1.5rem', opacity: 0.5, letterSpacing: '2px', textTransform: 'uppercase' }}>Global Presence</h3>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: '0.75rem', height: '150px', overflowY: 'auto', padding: '1.5rem', borderRadius: '1rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }} className="scrollbar-hidden">
+                    {CITIES.map((c) => (
+                      <a 
+                        key={c.id} 
+                        href={`/agency/${c.id}`}
+                        style={{ fontSize: '0.8rem', opacity: 0.4, whiteSpace: 'nowrap' }}
+                        className="hover:opacity-100 hover:text-blue-400 transition-all"
+                      >
+                        {c.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+                <div style={{ textAlign: 'center', opacity: 0.4, fontSize: '0.9rem' }}>
+                  © 2026 Quantapex Growth Automation. All rights reserved. 
+                  <br />
+                  <span style={{ fontSize: '0.7rem' }}>Global Web Supremacy Engine Active.</span>
+                </div>
+              </div>
             </footer>
           </div>
         </SmoothScroll>
