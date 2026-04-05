@@ -143,7 +143,9 @@ Best,
       }
     });
 
-  } catch (err: any) {
-    return NextResponse.json({ error: "Internal Server Error", details: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    console.error(err);
+    const message = err instanceof Error ? err.message : "Internal Server Error";
+    return NextResponse.json({ error: "Internal Server Error", details: message }, { status: 500 });
   }
 }

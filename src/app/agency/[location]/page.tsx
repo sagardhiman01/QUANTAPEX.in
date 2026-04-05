@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import { CITIES } from '../../../lib/cities';
 import Link from 'next/link';
 
+export const dynamicParams = false;
+
 // Pre-render all 200+ city pages at build time
 export async function generateStaticParams() {
   return CITIES.map((city) => ({

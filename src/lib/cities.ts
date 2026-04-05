@@ -201,4 +201,12 @@ export const CITIES = [
   { id: "pert", name: "Perth", region: "Australia", currency: "AUD" },
   { id: "brisbane", name: "Brisbane", region: "Australia", currency: "AUD" },
   { id: "adelaide", name: "Adelaide", region: "Australia", currency: "AUD" },
+
+  // --- HIGH-VALUE PREMIUM HUBS (USD ARBITRAGE) ---
+  { id: "dubai-marina", name: "Dubai Marina", region: "UAE", currency: "USD" },
+  { id: "beverly-hills", name: "Beverly Hills", region: "USA", currency: "USD" },
+  { id: "mayfair-london", name: "Mayfair London", region: "UK", currency: "GBP" },
+  { id: "orchard-singapore", name: "Orchard Road", region: "Singapore", currency: "USD" },
+  { id: "manhattan", name: "Manhattan", region: "USA", currency: "USD" },
+  { id: "zurich-finance", name: "Zurich Finance District", region: "Switzerland", currency: "CHF" },
 ];

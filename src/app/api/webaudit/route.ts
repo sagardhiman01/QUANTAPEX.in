@@ -10,14 +10,12 @@ export async function POST(req: Request) {
     }
 
     let html = "";
-    let status = 200;
     try {
       const response = await fetch(url.startsWith('http') ? url : `https://${url}`, {
         headers: { 'User-Agent': 'Mozilla/5.0 (compatible; WebAuditor/1.0; +https://example.com)' }
       });
-      status = response.status;
       html = await response.text();
-    } catch (e) {
+    } catch {
       return NextResponse.json({ error: "Failed to connect. Site might be highly unstable or blocking crawls." }, { status: 500 });
     }
 
@@ -74,7 +72,8 @@ The Quantapex Solution (Pitch this):
       detectedStack: hasReact ? "React/Next.js" : hasVue ? "Vue/Nuxt" : hasWp ? "WordPress" : "Legacy HTML/PHP",
     });
 
-  } catch (err: any) {
-    return NextResponse.json({ error: "Audit Error", details: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : "Tracking failed";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

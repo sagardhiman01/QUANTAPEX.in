@@ -56,7 +56,8 @@ Director of Growth, ${agencyName}
       closingStrategy
     });
 
-  } catch (err: any) {
-    return NextResponse.json({ error: "Sales Engine Error", details: err.message }, { status: 500 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Sales Engine Error";
+    return NextResponse.json({ error: "Sales Engine Error", details: message }, { status: 500 });
   }
 }

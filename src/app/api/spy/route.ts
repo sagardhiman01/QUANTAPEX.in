@@ -51,7 +51,8 @@ export async function POST(req: Request) {
       topKeywords,
       theftStrategy
     });
-  } catch (err: any) {
-    return NextResponse.json({ error: "Spy Engine Error", details: err.message }, { status: 500 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Spy Engine Error";
+    return NextResponse.json({ error: "Spy Engine Error", details: message }, { status: 500 });
   }
 }
