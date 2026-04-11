@@ -6,7 +6,8 @@ const EMAIL_PASS = 'lofh qxcv reua clga';
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
-  auth: { user: EMAIL_USER, pass: EMAIL_PASS }
+  auth: { user: EMAIL_USER, pass: EMAIL_PASS },
+  tls: { rejectUnauthorized: false }
 });
 
 async function sleep(ms) {

@@ -6,7 +6,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { Search, Activity, Zap, ShieldCheck, CheckCircle, Target, MapPin, Globe, Rocket, BarChart3, Github, Eye, Mail, Layout } from 'lucide-react';
+import { Search, Activity, Zap, ShieldCheck, CheckCircle, Target, MapPin, Globe, Rocket, BarChart3, Github, Eye, Mail, Layout, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 import { CITIES } from '@/lib/cities';
 
@@ -553,13 +553,51 @@ export default function Home() {
           </div>
       </section>
 
+      {/* Aurora Estates Case Study Section */}
+      <section className="container" style={{ margin: '10rem auto' }}>
+          <div className="glass-panel" style={{ padding: '0', overflow: 'hidden', border: '1px solid rgba(212,175,55,0.2)', background: 'linear-gradient(145deg, rgba(212,175,55,0.03), rgba(0,0,0,0.8))' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', alignItems: 'center' }}>
+                  <div style={{ padding: '5rem' }}>
+                      <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: '100px', padding: '6px 16px', marginBottom: '2rem' }}>
+                          <Zap size={14} color="var(--accent-gold)" fill="var(--accent-gold)" />
+                          <span style={{ color: 'var(--accent-gold)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '1px' }}>CASE STUDY: AURORA ESTATES</span>
+                      </div>
+                      <h2 style={{ fontSize: '3.5rem', fontWeight: 900, lineHeight: 1.1, marginBottom: '2rem' }}>
+                          From 800 to <span className="text-gradient">245,000 Organic Visits</span>/Month.
+                      </h2>
+                      <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '3rem' }}>
+                          We redesigned Aurora Estates' digital footprint, injecting a custom PSEO silo and high-conversion 3D showrooms. In 90 days, we achieved a +140% increase in qualified leads.
+                      </p>
+                      <div style={{ display: 'flex', gap: '3rem' }}>
+                          <div>
+                              <div style={{ fontSize: '2.5rem', fontWeight: 900, color: 'var(--accent-neon)' }}>+140%</div>
+                              <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textTransform: 'uppercase' }}>Conversion Rate</div>
+                          </div>
+                          <div>
+                              <div style={{ fontSize: '2.5rem', fontWeight: 900, color: 'var(--accent-gold)' }}>Top 3</div>
+                              <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textTransform: 'uppercase' }}>Google Rankings</div>
+                          </div>
+                      </div>
+                  </div>
+                  <div style={{ height: '100%', minHeight: '500px', background: 'url(/desktop_hero_fixed.png) center/cover' }}>
+                      <div style={{ width: '100%', height: '100%', background: 'linear-gradient(to right, rgba(0,0,0,1), transparent)', display: 'flex', alignItems: 'flex-end', padding: '3rem' }}>
+                          <Link href="/blog/seo-ranking-tips-2026" className="glass-panel" style={{ padding: '1.5rem 2.5rem', display: 'flex', alignItems: 'center', gap: '15px' }}>
+                              <div style={{ fontWeight: 700 }}>Read full Case Study</div>
+                              <TrendingUp size={20} color="var(--accent-neon)" />
+                          </Link>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
       {/* Global Presence Grid (PSEO Traffic Booster) */}
       <section className="container" style={{ margin: '8rem auto', textAlign: 'center' }}>
           <h2 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '1rem' }}>Global <span className="text-gradient-neon">Presence Grid</span></h2>
           <p style={{ color: 'var(--text-secondary)', marginBottom: '4.5rem', maxWidth: '600px', margin: '0 auto 4.5rem' }}>Dominating search results across global business hubs using Programmatic SEO.</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1.5rem' }}>
               {CITIES.slice(0, 12).map((city: any, i: number) => (
-                  <Link key={i} href={city.path} className="glass-panel" style={{ padding: '1.75rem', border: '1px solid rgba(0,240,255,0.1)', transition: 'all 0.4s cubic-bezier(0.19, 1, 0.22, 1)', cursor: 'pointer' }}
+                  <Link key={i} href={`/agency/${city.id}`} className="glass-panel" style={{ padding: '1.75rem', border: '1px solid rgba(0,240,255,0.1)', transition: 'all 0.4s cubic-bezier(0.19, 1, 0.22, 1)', cursor: 'pointer' }}
                     onMouseEnter={(e) => {
                         e.currentTarget.style.borderColor = 'var(--accent-neon)';
                         e.currentTarget.style.background = 'rgba(0,240,255,0.05)';

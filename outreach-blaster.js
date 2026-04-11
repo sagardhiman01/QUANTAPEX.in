@@ -9,11 +9,14 @@ const EMAIL_PASS = 'lofh qxcv reua clga';
 
 // Configure the SMTP Transporter
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
   auth: {
     user: EMAIL_USER,
     pass: EMAIL_PASS
-  }
+  },
+  tls: { rejectUnauthorized: false }
 });
 
 const csvFilePath = path.join(__dirname, '..', 'Final_Bulk_Leads_India.csv');
@@ -58,16 +61,14 @@ fs.createReadStream(csvFilePath)
       const mailOptions = {
         from: `"Quantapex Growth" <${EMAIL_USER}>`,
         to: targetEmail,
-        subject: `Your business is losing online traffic in ${lead.Location || 'your area'} (Quick fix)`,
+        subject: `Growth Partnership Proposal: ${businessName} x Quantapex`,
         text: `Hi ${businessName},
 
-We were running a digital footprint analysis for businesses in ${lead.Location || 'India'} and noticed that your Google profile does not have an active, professional website linked.
+I'm reaching out because we've identified your brand as a high-potential digital entity in ${lead.Location || 'your area'}. 
 
-Right now, your direct competitors are absorbing the traffic and high-ticket clients that should be going to you, simply because they look more authoritative online.
+Instead of a standard pitch, I'm proposing a **Growth Partnership**. We're looking for a partner in your niche to feature in our 2026 'AI-SEO Success Stories' cohort. 
 
-At Quantapex, we engineer premium 3D web experiences. We build start-to-end Premium websites ranging from ₹6,999 to ₹49,999 that instantly rank on Google and convert visitors into paying clients.
-
-Would you be open to a 5-minute chat this week to see how we can fix this and capture your lost revenue?
+If interested, we can discuss a subsidized premium setup in exchange for a documented growth story.
 
 Best,
 The Quantapex Team
