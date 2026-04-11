@@ -60,24 +60,15 @@ export default function BlogPage() {
 
       {/* Featured Post */}
       <section className="container" style={{ marginBottom: '4rem' }}>
-        <Link href={`/blog/${featured.slug}`} style={{ display: 'block' }}>
-          <div className="glass-panel" style={{
-            padding: '3rem',
-            border: '1px solid rgba(212,175,55,0.3)',
-            background: 'linear-gradient(135deg, rgba(212,175,55,0.05), rgba(0,240,255,0.05))',
-            cursor: 'pointer',
-            transition: 'transform 0.3s, box-shadow 0.3s',
-            position: 'relative',
-            overflow: 'hidden'
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-4px)';
-            (e.currentTarget as HTMLDivElement).style.boxShadow = '0 20px 60px rgba(212,175,55,0.2)';
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)';
-            (e.currentTarget as HTMLDivElement).style.boxShadow = '';
-          }}>
+            <Link href={`/blog/${featured.slug}`} style={{ display: 'block' }}>
+              <div className="glass-panel" style={{
+                padding: '3rem',
+                border: '1px solid rgba(212,175,55,0.3)',
+                background: 'linear-gradient(135deg, rgba(212,175,55,0.05), rgba(0,240,255,0.05))',
+                cursor: 'pointer',
+                position: 'relative',
+                overflow: 'hidden'
+              }}>
             <div style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', background: 'var(--accent-gold)', color: '#000', padding: '4px 12px', borderRadius: '100px', fontSize: '0.75rem', fontWeight: 700 }}>
               FEATURED
             </div>
@@ -112,18 +103,9 @@ export default function BlogPage() {
                   padding: '2rem',
                   height: '100%',
                   cursor: 'pointer',
-                  transition: 'all 0.3s',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '1rem'
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-4px)';
-                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(0,240,255,0.3)';
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)';
-                  (e.currentTarget as HTMLDivElement).style.borderColor = '';
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

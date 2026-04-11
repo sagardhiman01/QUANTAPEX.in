@@ -526,7 +526,7 @@ AI agents love data tables, direct prices, and clear service levels. Transparenc
 
 ### Recommended Setup for Agentic SEO:
 - **Comprehensive JSON-LD Offer Catalog**: List every service and price.
-- **Clean, semantic HTML tags**: Use `<article>`, `<section>`, and `<aside>` correctly.
+- **Clean, semantic HTML tags**: Use <article>, <section>, and <aside> correctly.
 - **Lightning-fast response times**: A fast site is easier for bots to crawl and recommend.
 
 When an AI agent recommends you, you don't just get a click. You get a qualified lead.`

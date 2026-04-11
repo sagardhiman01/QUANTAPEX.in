@@ -236,9 +236,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.5rem' }}>
               {displayRelated.map((related) => (
                 <Link href={`/blog/${related.slug}`} key={related.slug}>
-                  <div className="glass-panel" style={{ padding: '1.5rem', cursor: 'pointer', transition: 'all 0.3s' }}
-                    onMouseEnter={(e) => (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(212,175,55,0.4)'}
-                    onMouseLeave={(e) => (e.currentTarget as HTMLDivElement).style.borderColor = ''}>
+                  <div className="glass-panel" style={{ padding: '1.5rem', cursor: 'pointer', transition: 'all 0.3s' }}>
                     <span style={{ color: 'var(--accent-gold)', fontSize: '0.75rem', fontWeight: 600 }}>{related.category}</span>
                     <h3 style={{ fontSize: '1rem', fontWeight: 600, margin: '0.5rem 0', lineHeight: 1.4 }}>{related.title}</h3>
                     <span style={{ color: 'var(--accent-neon)', fontSize: '0.85rem' }}>Read Article →</span>

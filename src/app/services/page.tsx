@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle, Zap, ShieldCheck, Search, Globe, Code, Target, BarChart3 } from 'lucide-react';
+import { Search, Globe, Code, Target } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Services() {
@@ -38,7 +38,7 @@ export default function Services() {
           Elite Ranking Services
         </h1>
         <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', maxWidth: '800px', margin: '0 auto' }}>
-          We don't just build websites; we engineer revenue-generating assets that dominate search results and crush your competition.
+          We don&apos;t just build websites; we engineer revenue-generating assets that dominate search results and crush your competition.
         </p>
       </section>
 
