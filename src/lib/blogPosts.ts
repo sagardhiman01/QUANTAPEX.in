@@ -514,22 +514,7 @@ The best link is the one in the user's mind.`
     readTime: "8 min read",
     date: "2026-04-04",
     keywords: ["ai bot conversion", "agentic seo", "recommendation engine", "meta search"],
-    content: `In 2026, half of your 'visitors' are bots representing real humans. If the AI agent likes your site, it will recommend you as the #1 choice to the user.
-
-## Machine-Readable Value Propositions
-
-Is your value proposition hidden in a video, or is it clearly defined in JSON-LD? AI agents cannot 'watch' a video like a human, but they can parse code in milliseconds.
-
-## Providing 'Data Hooks'
-
-AI agents love data tables, direct prices, and clear service levels. Transparency is the best ranking signal for machines.
-
-### Recommended Setup for Agentic SEO:
-- **Comprehensive JSON-LD Offer Catalog**: List every service and price.
-- **Clean, semantic HTML tags**: Use `<article>`, `<section>`, and `<aside>` correctly.
-- **Lightning-fast response times**: A fast site is easier for bots to crawl and recommend.
-
-When an AI agent recommends you, you don't just get a click. You get a qualified lead.`
+    content: "In 2026, half of your 'visitors' are bots representing real humans. If the AI agent likes your site, it will recommend you as the #1 choice to the user.\n\n## Machine-Readable Value Propositions\n\nIs your value proposition hidden in a video, or is it clearly defined in JSON-LD? AI agents cannot 'watch' a video like a human, but they can parse code in milliseconds.\n\n## Providing 'Data Hooks'\n\nAI agents love data tables, direct prices, and clear service levels. Transparency is the best ranking signal for machines.\n\n### Recommended Setup for Agentic SEO:\n- **Comprehensive JSON-LD Offer Catalog**: List every service and price.\n- **Clean, semantic HTML tags**: Use `<article>`, `<section>`, and `<aside>` correctly.\n- **Lightning-fast response times**: A fast site is easier for bots to crawl and recommend.\n\nWhen an AI agent recommends you, you don't just get a click. You get a qualified lead."
   }
 ];
 

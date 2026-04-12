@@ -1,4 +1,7 @@
 import { NextResponse } from 'next/server';
+
+export const dynamic = 'force-static';
+export const revalidate = false;
 import * as cheerio from 'cheerio';
 
 function getKeywords(text: string) {

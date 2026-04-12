@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { getDb } from '@/lib/db';
 
+export const dynamic = 'force-static';
+export const revalidate = false;
+
 export async function GET() {
   try {
     const db = await getDb();
