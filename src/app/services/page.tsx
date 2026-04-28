@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle, Zap, ShieldCheck, Search, Globe, Code, Target, BarChart3 } from 'lucide-react';
+import { Search, Globe, Code, Target } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Services() {
