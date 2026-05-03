@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-export const dynamic = 'force-static';
 import { getDb } from '@/lib/db';
 
 export const dynamic = 'force-static';

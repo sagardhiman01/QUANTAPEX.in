@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: '%s | Quantapex'
   },
   description: 'Quantapex is an AI-powered SEO automation and web development agency. Get a free website audit, rank higher on Google, and grow your business with proven strategies.',
-  keywords: 'seo agency, web design agency, ai seo, google ranking, website audit, local seo, quantapex',
+  keywords: ['AI SEO agency', 'automated SEO services', 'enterprise web development', 'Next.js agency', 'programmatic SEO', 'Google ranking automation', 'Quantapex', 'local SEO domination'],
   authors: [{ name: 'Quantapex', url: 'https://quantapex.in' }],
   creator: 'Quantapex',
   publisher: 'Quantapex',
