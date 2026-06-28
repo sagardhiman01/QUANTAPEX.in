@@ -1,9 +1,5 @@
 import { MetadataRoute } from 'next';
 import { CITIES } from '../lib/cities';
-import { BLOG_POSTS } from '../lib/blogPosts';
-
-export const dynamic = 'force-static';
-export const revalidate = false;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://quantapex.in';
@@ -17,18 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: 'daily' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.85,
-    },
-    {
       url: `${baseUrl}/#analyze`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
@@ -40,15 +24,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/reviews`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/faq`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    },
   ];
-
-  // Blog posts - highest priority after homepage
-  const blogPages = BLOG_POSTS.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.85,
-  }));
 
   // Dynamic PSEO pages for 200+ cities
   const cityPages = CITIES.map((city) => ({
@@ -58,5 +46,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...basePages, ...blogPages, ...cityPages];
+  return [...basePages, ...cityPages];
 }
