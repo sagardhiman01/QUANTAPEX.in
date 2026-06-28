@@ -3,6 +3,7 @@ import './globals.css';
 import { CITIES } from '../lib/cities';
 import SmoothScroll from '../components/SmoothScroll';
 import AnalyticsTracker from '@/components/AnalyticsTracker';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: {
@@ -147,12 +148,12 @@ export default function RootLayout({
         <SmoothScroll>
           <div className="layout-wrapper" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <nav style={{ padding: '1.5rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255,255,255,0.06)', position: 'sticky', top: 0, zIndex: 100, background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(16px)' }} className="container">
-              <a href="/" style={{ fontSize: '1.4rem', fontWeight: 800, textDecoration: 'none' }} className="text-gradient">Quantapex</a>
+              <Link href="/" style={{ fontSize: '1.4rem', fontWeight: 800, textDecoration: 'none' }} className="text-gradient">Quantapex</Link>
               <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
-                <a href="/#analyze" style={{ fontSize: '0.9rem', fontWeight: 500, textDecoration: 'none', color: 'rgba(255,255,255,0.6)' }}>Analyze</a>
-                <a href="/faq" style={{ fontSize: '0.9rem', fontWeight: 500, textDecoration: 'none', color: 'rgba(255,255,255,0.6)' }}>FAQ</a>
-                <a href="/reviews" style={{ fontSize: '0.9rem', fontWeight: 500, textDecoration: 'none', color: 'rgba(255,255,255,0.6)' }}>Reviews</a>
-                <a href="/#analyze" style={{ fontSize: '0.85rem', fontWeight: 700, padding: '8px 18px', background: 'linear-gradient(135deg, #00f0ff22, #0070ff22)', border: '1px solid #00f0ff66', borderRadius: '100px', color: '#00f0ff', textDecoration: 'none' }}>Start Free Analysis</a>
+                <Link href="/#analyze" style={{ fontSize: '0.9rem', fontWeight: 500, textDecoration: 'none', color: 'rgba(255,255,255,0.6)' }}>Analyze</Link>
+                <Link href="/faq" style={{ fontSize: '0.9rem', fontWeight: 500, textDecoration: 'none', color: 'rgba(255,255,255,0.6)' }}>FAQ</Link>
+                <Link href="/reviews" style={{ fontSize: '0.9rem', fontWeight: 500, textDecoration: 'none', color: 'rgba(255,255,255,0.6)' }}>Reviews</Link>
+                <Link href="/#analyze" style={{ fontSize: '0.85rem', fontWeight: 700, padding: '8px 18px', background: 'linear-gradient(135deg, #00f0ff22, #0070ff22)', border: '1px solid #00f0ff66', borderRadius: '100px', color: '#00f0ff', textDecoration: 'none' }}>Start Free Analysis</Link>
               </div>
             </nav>
             <main style={{ flex: 1 }}>
