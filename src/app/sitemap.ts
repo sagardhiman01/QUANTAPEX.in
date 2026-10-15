@@ -1,10 +1,12 @@
 import { MetadataRoute } from 'next';
 import { CITIES } from '../lib/cities';
 
+export const dynamic = 'force-static';
+export const revalidate = false;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://quantapex.in';
 
-  // Base pages
   const basePages = [
     {
       url: baseUrl,
@@ -38,7 +40,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Dynamic PSEO pages for 200+ cities
   const cityPages = CITIES.map((city) => ({
     url: `${baseUrl}/agency/${city.id}`,
     lastModified: new Date(),
